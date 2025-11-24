@@ -1,0 +1,14 @@
+flowchart LR
+    User --> ALB
+    ALB --> Blue[Blue ASG]
+    ALB --> Green[Green ASG]
+    
+    Blue --> Logs[CloudWatch Logs]
+    Green --> Logs
+    
+    Blue --> Metrics[CloudWatch Metrics]
+    Green --> Metrics
+    
+    Metrics --> Alarms[CloudWatch Alarms]
+    Alarms --> SNS[SNS Topic]
+    SNS --> Email[DevOps Team]

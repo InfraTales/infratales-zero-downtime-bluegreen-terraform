@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant Dev as Developer
+    participant CI as CI/CD Pipeline
+    participant TF as Terraform
+    participant AWS as AWS Cloud
+    
+    Dev->>CI: Push Code
+    CI->>TF: Plan & Apply (Green)
+    TF->>AWS: Create Green ASG
+    AWS-->>TF: Green ASG Ready
+    
+    CI->>AWS: Run Health Checks (Green)
+    AWS-->>CI: Health OK
+    
+    CI->>TF: Shift Traffic (10%)
+    TF->>AWS: Update ALB Weights (Blue:90, Green:10)
+    
+    Note over AWS: Monitor for Errors
+    
+    alt Errors Detected
+        AWS->>TF: Trigger Rollback
+        TF->>AWS: Update ALB Weights (Blue:100, Green:0)
+    else Healthy
+        CI->>TF: Shift Traffic (100%)
+        TF->>AWS: Update ALB Weights (Blue:0, Green:100)
+        CI->>TF: Destroy Blue ASG
+    end

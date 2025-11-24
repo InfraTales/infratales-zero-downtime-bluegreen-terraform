@@ -1,0 +1,29 @@
+graph TD
+    User[User] -->|HTTPS| ALB[Application Load Balancer]
+    
+    subgraph VPC
+        subgraph Public_Subnets
+            ALB
+            NAT[NAT Gateway]
+        end
+        
+        subgraph Private_Subnets
+            subgraph Blue_Env
+                ASG_Blue[Blue ASG]
+                EC2_Blue[EC2 Instances v1]
+            end
+            
+            subgraph Green_Env
+                ASG_Green[Green ASG]
+                EC2_Green[EC2 Instances v2]
+            end
+        end
+    end
+    
+    ALB -->|Weight: 90%| ASG_Blue
+    ALB -->|Weight: 10%| ASG_Green
+    
+    EC2_Blue --> NAT
+    EC2_Green --> NAT
+    
+    CW[CloudWatch] -.->|Alarms| ALB
