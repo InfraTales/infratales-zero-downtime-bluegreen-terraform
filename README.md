@@ -70,14 +70,30 @@ terraform apply -var-file="prod.tfvars"
 - **Network**: No public SSH access. Session Manager enabled.
 - **IAM**: Granular permissions for ASG and CodeDeploy.
 
+## 👤 Author
+
+**Rahul Ladumor** - Founder of InfraTales
+
+- 🌐 Portfolio: [rahulladumor.in](https://www.rahulladumor.in)
+- ☁️ Blog: [acloudwithrahul.in](https://www.acloudwithrahul.in)
+- 💼 GitHub: [@rahulladumor](https://github.com/rahulladumor)
+- 🏢 Organization: [InfraTales](https://github.com/InfraTales)
+- 📧 Email: rahul.ladumor@infratales.com
+- 💬 LinkedIn: [linkedin.com/in/rahulladumor](https://www.linkedin.com/in/rahulladumor)
+
 ## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
+
 <div align="center">
-  <a href="https://infratales.com">Website</a> •
-  <a href="https://infratales.com/projects">Projects</a> •
-  <a href="https://infratales.com/newsletter">Newsletter</a> •
-  <a href="https://infratales.com/premium">Premium</a>
+
+**Built with ❤️ by [InfraTales](https://github.com/InfraTales)**
+
+<a href="https://infratales.com">Website</a> •
+<a href="https://infratales.com/projects">Projects</a> •
+<a href="https://infratales.com/premium">Premium</a> •
+<a href="https://infratales.com/newsletter">Newsletter</a>
+
 </div>
